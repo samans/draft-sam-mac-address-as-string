@@ -69,21 +69,21 @@ There are several potential trouble spots in published IETF YANG modules.
 The IETF Format (from ietf-yang-types@2013-07-15.yang) used in the mac-address typedef is found below.
 
 ~~~~
-  typedef mac-address {
-    type string {
-      pattern '[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}';
-    }
-    description
-     "The mac-address type represents an IEEE 802 MAC address.
-      The canonical representation uses lowercase characters.
+typedef mac-address {
+ type string {
+   pattern '[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}';
+ }
+ description
+  "The mac-address type represents an IEEE 802 MAC address.
+   The canonical representation uses lowercase characters.
 
-      In the value set and its semantics, this type is equivalent
-      to the MacAddress textual convention of the SMIv2.";
-    reference
-     "IEEE 802: IEEE Standard for Local and Metropolitan Area
-                Networks: Overview and Architecture
-      RFC 2579: Textual Conventions for SMIv2";
-  }
+   In the value set and its semantics, this type is equivalent
+   to the MacAddress textual convention of the SMIv2.";
+ reference
+  "IEEE 802: IEEE Standard for Local and Metropolitan Area
+             Networks: Overview and Architecture
+   RFC 2579: Textual Conventions for SMIv2";
+}
 ~~~~
 
 ## IEEE Format
@@ -91,17 +91,17 @@ The IETF Format (from ietf-yang-types@2013-07-15.yang) used in the mac-address t
 The IEEE Format used in the mac-address typedef is found below.
 
 ~~~~
-  typedef mac-address {
-    type string {
-      pattern "[0-9a-fA-F]{2}(-[0-9a-fA-F]{2}){5}";
-    }
-    description
-      "The mac-address type represents a MAC address in the canonical format
-      and hexadecimal format specified by IEEE Std 802. The hexadecimal
-      representation uses uppercase characters.";
-    reference
-      "3.1, 8.1 of IEEE Std 802";
-  }
+typedef mac-address {
+ type string {
+   pattern "[0-9a-fA-F]{2}(-[0-9a-fA-F]{2}){5}";
+ }
+ description
+   "The mac-address type represents a MAC address in the canonical
+    format and hexadecimal format specified by IEEE Std 802. The
+    hexadecimal representation uses uppercase characters.";
+ reference
+   "3.1, 8.1 of IEEE Std 802";
+}
 ~~~~
 
 # Options
