@@ -111,6 +111,8 @@ The IEEE Format used in the mac-address typedef is found below.
 - Do what SMNP did, abandon strings and store the MAC Address as 6 octets and provide the ability to use a display hint style facility.
 - Do Nothing
 
+- Some other brilliant solution?
+
 # Security Considerations
 
 TODO Security
