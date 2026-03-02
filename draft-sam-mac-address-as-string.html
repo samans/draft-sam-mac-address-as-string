@@ -1192,16 +1192,20 @@ svg :is([fill="white"], [fill^="#fff"]) {
       </h2>
 <p id="section-2-1">The IETF YANG module <span>[<a href="#RFC9911" class="cite xref">RFC9911</a>]</span> and IEEE YANG <span>[<a href="#IEEE-802-1Qcw" class="cite xref">IEEE-802-1Qcw</a>]</span> module use a datatype of String to store MAC Addresses.  The issue is that the IETF and IEEE use different patterns and have different canonical forms, which leads to a situation where equivalent MAC Addresses will not match.<a href="#section-2-1" class="pilcrow">¶</a></p>
 <p id="section-2-2">This internet-draft is meant to document the issue, raise awareness, and identify potential solutions.<a href="#section-2-2" class="pilcrow">¶</a></p>
-<p id="section-2-3">For example, the following is in IETF Canonical Format
-~~~~ artwork
+<p id="section-2-3">For example, the following is in IETF Canonical Format<a href="#section-2-3" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-2-4">
+<pre>
    90-10-00-01-02-AA
-~~~~<a href="#section-2-3" class="pilcrow">¶</a></p>
-<p id="section-2-4">For example, the following is in IEEE Canonical Format
-~~~~ artwork
+</pre><a href="#section-2-4" class="pilcrow">¶</a>
+</div>
+<p id="section-2-5">For example, the following is in IEEE Canonical Format<a href="#section-2-5" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-2-6">
+<pre>
    90:10:00:01:02:aa
-~~~~<a href="#section-2-4" class="pilcrow">¶</a></p>
-<p id="section-2-5">Are equivalent, but will not match if used in an XPATH, or as a key, or any string comparison.<a href="#section-2-5" class="pilcrow">¶</a></p>
-<p id="section-2-6">There are several potential trouble spots in published IETF YANG modules.<a href="#section-2-6" class="pilcrow">¶</a></p>
+</pre><a href="#section-2-6" class="pilcrow">¶</a>
+</div>
+<p id="section-2-7">Are equivalent, but will not match if used in an XPATH, or as a key, or any string comparison.<a href="#section-2-7" class="pilcrow">¶</a></p>
+<p id="section-2-8">There are several potential trouble spots in published IETF YANG modules.<a href="#section-2-8" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="detail">
@@ -1214,23 +1218,24 @@ svg :is([fill="white"], [fill^="#fff"]) {
         <h3 id="name-ietf-format">
 <a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-ietf-format" class="section-name selfRef">IETF Format</a>
         </h3>
-<p id="section-3.1-1">The IETF Format (from ietf-yang-types@2013-07-15.yang) used in the mac-address typedef is found below.
-~~~~
+<p id="section-3.1-1">The IETF Format (from ietf-yang-types@2013-07-15.yang) used in the mac-address typedef is found below.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-3.1-2">
+<pre>
   typedef mac-address {
     type string {
       pattern '[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}';
     }
     description
      "The mac-address type represents an IEEE 802 MAC address.
-      The canonical representation uses lowercase characters.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-3.1-2">
-<pre>
-  In the value set and its semantics, this type is equivalent
-  to the MacAddress textual convention of the SMIv2.";
-reference
- "IEEE 802: IEEE Standard for Local and Metropolitan Area
-            Networks: Overview and Architecture
-  RFC 2579: Textual Conventions for SMIv2";   } ~~~~
+      The canonical representation uses lowercase characters.
+
+      In the value set and its semantics, this type is equivalent
+      to the MacAddress textual convention of the SMIv2.";
+    reference
+     "IEEE 802: IEEE Standard for Local and Metropolitan Area
+                Networks: Overview and Architecture
+      RFC 2579: Textual Conventions for SMIv2";
+  }
 </pre><a href="#section-3.1-2" class="pilcrow">¶</a>
 </div>
 </section>
@@ -1240,8 +1245,9 @@ reference
         <h3 id="name-ieee-format">
 <a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-ieee-format" class="section-name selfRef">IEEE Format</a>
         </h3>
-<p id="section-3.2-1">The IEEE Format used in the mac-address typedef is found below.
-~~~~
+<p id="section-3.2-1">The IEEE Format used in the mac-address typedef is found below.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-3.2-2">
+<pre>
   typedef mac-address {
     type string {
       pattern "[0-9a-fA-F]{2}(-[0-9a-fA-F]{2}){5}";
@@ -1253,7 +1259,8 @@ reference
     reference
       "3.1, 8.1 of IEEE Std 802";
   }
-~~~~<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+</pre><a href="#section-3.2-2" class="pilcrow">¶</a>
+</div>
 </section>
 </div>
 </section>
