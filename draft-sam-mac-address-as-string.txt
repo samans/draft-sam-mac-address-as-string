@@ -1,0 +1,174 @@
+
+
+
+
+NETMOD Working Group                                        S. Mansfield
+Internet-Draft                                                  Ericsson
+Intended status: Informational                              2 March 2026
+Expires: 3 September 2026
+
+
+                         MAC Address as String
+                 draft-sam-mac-address-as-string-latest
+
+Abstract
+
+   IETF and IEEE 802.1 have different patterns for mac addresses in
+   their respective YANG types modules.  Therefore equivalent mac
+   addresses may or may not match if a mac-address that uses the IETF
+   datatype is compared to a mac-address that uses the IEEE datatype
+   (and vise-versa).
+
+Discussion Venues
+
+   This note is to be removed before publishing as an RFC.
+
+   Source for this draft and an issue tracker can be found at
+   https://github.com/samans/draft-sam-mac-address-as-string.
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on 3 September 2026.
+
+Copyright Notice
+
+   Copyright (c) 2026 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.  Code Components
+   extracted from this document must include Revised BSD License text as
+   described in Section 4.e of the Trust Legal Provisions and are
+   provided without warranty as described in the Revised BSD License.
+
+Table of Contents
+
+   1.  Introduction
+   2.  Problem Statement
+   3.  Detail
+     3.1.  IETF Format
+     3.2.  IEEE Format
+   4.  Options
+   5.  Security Considerations
+   6.  IANA Considerations
+   7.  Informative References
+   Acknowledgments
+   Author's Address
+
+1.  Introduction
+
+   MAC Address Formats in the IETF and IEEE YANG modules are different.
+
+2.  Problem Statement
+
+   The IETF YANG module [RFC9911] and IEEE YANG [IEEE-802-1Qcw] module
+   use a datatype of String to store MAC Addresses.  The issue is that
+   the IETF and IEEE use different patterns and have different canonical
+   forms, which leads to a situation where equivalent MAC Addresses will
+   not match.
+
+   This internet-draft is meant to document the issue, raise awareness,
+   and identify potential solutions.
+
+   For example, the following is in IETF Canonical Format ~~~~ artwork
+   90-10-00-01-02-AA ~~~~
+
+   For example, the following is in IEEE Canonical Format ~~~~ artwork
+   90:10:00:01:02:aa ~~~~
+
+   Are equivalent, but will not match if used in an XPATH, or as a key,
+   or any string comparison.
+
+   There are several potential trouble spots in published IETF YANG
+   modules.
+
+3.  Detail
+
+3.1.  IETF Format
+
+   The IETF Format (from ietf-yang-types@2013-07-15.yang) used in the
+   mac-address typedef is found below. ~~~~ typedef mac-address { type
+   string { pattern '[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'; } description
+   "The mac-address type represents an IEEE 802 MAC address.  The
+   canonical representation uses lowercase characters.
+
+     In the value set and its semantics, this type is equivalent
+     to the MacAddress textual convention of the SMIv2.";
+   reference
+    "IEEE 802: IEEE Standard for Local and Metropolitan Area
+               Networks: Overview and Architecture
+     RFC 2579: Textual Conventions for SMIv2";   } ~~~~
+
+3.2.  IEEE Format
+
+   The IEEE Format used in the mac-address typedef is found below. ~~~~
+   typedef mac-address { type string { pattern "[0-9a-fA-F]{2}(-[0-9a-
+   fA-F]{2}){5}"; } description "The mac-address type represents a MAC
+   address in the canonical format and hexadecimal format specified by
+   IEEE Std 802.  The hexadecimal representation uses uppercase
+   characters."; reference "3.1, 8.1 of IEEE Std 802"; } ~~~~
+
+4.  Options
+
+   *  Create a new mac-address type and deprecate the mac-address types
+      in IETF and IEEE types files.
+
+   *  Modify the mac-address patterns in both IETF and IEEE to be
+      inclusive of everything, and fix the descriptions to warn the
+      implementers about the issue with equivalence.
+
+   *  Add something to the YANG language that will provide a way to
+      indicate an "equivalence" pattern.
+
+   *  Do what SMNP did, abandon strings and store the MAC Address as 6
+      octets and provide the ability to use a display hint style
+      facility.
+
+   *  Do Nothing
+
+5.  Security Considerations
+
+   TODO Security
+
+6.  IANA Considerations
+
+   This document has no IANA actions.
+
+7.  Informative References
+
+   [IEEE-802-1Qcw]
+              "IEEE Standard for Local and Metropolitan Area Networks--
+              Bridges and Bridged Networks Amendment 36: YANG Data
+              Models for Scheduled Traffic, Frame Preemption, and
+              Per‐Stream Filtering and Policing", 17 November 2023,
+              <https://doi.org/10.1109/IEEESTD.2023.10317806>.
+
+   [RFC9911]  Schönwälder, J., Ed., "Common YANG Data Types", RFC 9911,
+              DOI 10.17487/RFC9911, December 2025,
+              <https://www.rfc-editor.org/rfc/rfc9911>.
+
+Acknowledgments
+
+   TODO acknowledge.
+
+Author's Address
+
+   Scott Mansfield
+   Ericsson
+   Email: scott.mansfield@ericsson.com
