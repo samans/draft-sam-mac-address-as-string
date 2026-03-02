@@ -4,7 +4,7 @@ coding: utf-8
 title: "MAC Address as String"
 abbrev: "MAC Strings"
 category: info
-docname: draft-sam-mac-address-as-string
+docname: draft-sam-mac-address-as-string-latest
 ipr: trust200902
 submissiontype: IETF
 area: OPS
