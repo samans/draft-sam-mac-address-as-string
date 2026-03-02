@@ -38,25 +38,27 @@ IETF and IEEE 802.1 have different patterns for mac addresses in their respectiv
 
 # Introduction
 
-MAC Address Formats in the IETF and IEEE YANG modules are different.  
+MAC Address Formats in the IETF and IEEE YANG modules are different.
 
 # Problem Statement
 
-The IETF YANG module {{?RFC9911}} and IEEE YANG {{?IEEE-802-1Qcw}} module use a datatype of String to store MAC Addresses.  The issue is that the IETF and IEEE use different patterns and have different canonical forms, which leads to a situation where equivalent MAC Addresses will not match.
+The IETF YANG module {{?RFC9911}} and IEEE YANG {{IEEE-802-1Qcw}} module use a datatype of String to store MAC Addresses.  The issue is that the IETF and IEEE use different patterns and have different canonical forms, which leads to a situation where equivalent MAC Addresses will not match.
 
 This internet-draft is meant to document the issue, raise awareness, and identify potential solutions.
 
-For example, the following is in IETF Canonical Format
-~~~~ artwork
+For example, the following MAC Address is in IETF Canonical Format
+
+~~~~
    90-10-00-01-02-AA
 ~~~~
 
-For example, the following is in IEEE Canonical Format
-~~~~ artwork
+For example, the following MAC Address is in IEEE Canonical Format
+
+~~~~
    90:10:00:01:02:aa
 ~~~~
 
-Are equivalent, but will not match if used in an XPATH, or as a key, or any string comparison.
+The MAC Address are equivalent, but will not match if used in an XPATH, or as a key, or any string comparison.
 
 There are several potential trouble spots in published IETF YANG modules.
 
@@ -65,6 +67,7 @@ There are several potential trouble spots in published IETF YANG modules.
 ## IETF Format
 
 The IETF Format (from ietf-yang-types@2013-07-15.yang) used in the mac-address typedef is found below.
+
 ~~~~
   typedef mac-address {
     type string {
@@ -86,6 +89,7 @@ The IETF Format (from ietf-yang-types@2013-07-15.yang) used in the mac-address t
 ## IEEE Format
 
 The IEEE Format used in the mac-address typedef is found below.
+
 ~~~~
   typedef mac-address {
     type string {
