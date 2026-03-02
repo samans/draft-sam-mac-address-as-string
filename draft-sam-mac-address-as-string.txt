@@ -86,16 +86,16 @@ Table of Contents
    This internet-draft is meant to document the issue, raise awareness,
    and identify potential solutions.
 
-   For example, the following is in IETF Canonical Format
+   For example, the following MAC Address is in IETF Canonical Format
 
       90-10-00-01-02-AA
 
-   For example, the following is in IEEE Canonical Format
+   For example, the following MAC Address is in IEEE Canonical Format
 
       90:10:00:01:02:aa
 
-   Are equivalent, but will not match if used in an XPATH, or as a key,
-   or any string comparison.
+   The MAC Address are equivalent, but will not match if used in an
+   XPATH, or as a key, or any string comparison.
 
    There are several potential trouble spots in published IETF YANG
    modules.
@@ -156,6 +156,8 @@ Table of Contents
       facility.
 
    *  Do Nothing
+
+   *  Some other brilliant solution?
 
 5.  Security Considerations
 
