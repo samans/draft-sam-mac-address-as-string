@@ -74,15 +74,19 @@ typedef mac-address {
    pattern '[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}';
  }
  description
-  "The mac-address type represents an IEEE 802 MAC address.
-   The canonical representation uses lowercase characters.
+   "The mac-address type represents a 48-bit IEEE 802 Media
+    Access Control (MAC) address.  The canonical representation
+    uses lowercase characters.  Note that there are IEEE 802 MAC
+    addresses with a different length that this type cannot
+    represent.  The phys-address type may be used to represent
+    physical addresses of varying length.
 
-   In the value set and its semantics, this type is equivalent
-   to the MacAddress textual convention of the SMIv2.";
+    In the value set and its semantics, this type is equivalent
+    to the MacAddress textual convention of the SMIv2.";
  reference
-  "IEEE 802: IEEE Standard for Local and Metropolitan Area
-             Networks: Overview and Architecture
-   RFC 2579: Textual Conventions for SMIv2";
+   "IEEE 802: IEEE Standard for Local and Metropolitan Area
+              Networks: Overview and Architecture
+    RFC 2579: Textual Conventions for SMIv2";
 }
 ~~~~
 
