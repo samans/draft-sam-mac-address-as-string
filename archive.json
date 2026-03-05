@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-03-03T02:09:06.747697+00:00",
+  "timestamp": "2026-03-05T02:06:29.355787+00:00",
   "repo": "samans/draft-sam-mac-address-as-string",
   "labels": [
     {
@@ -49,6 +49,23 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 1,
+      "id": "I_kwDORco6Qs7vZobL",
+      "title": "RFC9911 YANG",
+      "url": "https://github.com/samans/draft-sam-mac-address-as-string/issues/1",
+      "state": "OPEN",
+      "author": "samans",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "The extracted datatype in the draft is correct, but the reference is wrong.  Wait until YANG is available and update reference.",
+      "createdAt": "2026-03-03T12:43:00Z",
+      "updatedAt": "2026-03-03T12:43:00Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
   "pulls": []
 }
